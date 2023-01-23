@@ -5,24 +5,8 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+      <div class="d-flex align-center h1">
+        {{ title }}
       </div>
 
       <v-spacer></v-spacer>
@@ -38,23 +22,23 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <GithubRepoBrowser/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import GithubRepoBrowser from './components/GithubRepoBrowser';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    GithubRepoBrowser,
   },
 
   data: () => ({
-    //
+    title: 'Github Repo Browser'
   }),
 };
 </script>
