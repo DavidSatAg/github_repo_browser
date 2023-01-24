@@ -1,5 +1,45 @@
+async function fetch_all_pages(url) {
+    let vaiindo = true
+    let result = []
+    let page = 1
+    while(vaiindo) {
+        const response = await fetch(`${url}?page=${page}`)
+        const tmpitems = await response.json()
+        if(tmpitems.length > 0) {
+            result = result.concat(tmpitems)
+            page++
+        } else {
+            vaiindo = false
+        }
+    }
+    return result
+}
+
+
 export const api = {
-    search_users(searchstring) {
-        return fetch(`https://api.github.com/search/users?q=${searchstring}`).then(result => result.json())
+    async search_users(searchstring){
+        const url = `https://api.github.com/search/users?q=${searchstring}`
+        const result = await fetch(url)
+        return await result.json()
+    },
+    async lista_repos(username){
+        const url = `https://api.github.com/users/${username}/repos`
+        const data = await fetch_all_pages(url)
+        return await data
+    },
+    async listaIssues(owner, name, page) {
+        const url = `https://api.github.com/repos/${owner}/${name}/issues?page=${page}`
+        const response = await fetch(url)
+        return await response.json()
+    },
+    async listaConteudoRepo(owner, name) {
+        const url = `https://api.github.com/repos/${owner}/${name}/contents/`
+        const response = await fetch(url)
+        return await response.json()
+    },
+    async listaConteudoRepo2(owner, name, path) {
+        const url = `https://api.github.com/repos/${owner}/${name}/contents/${path}`
+        const response = await fetch(url)
+        return await response.json()
     }
 }
