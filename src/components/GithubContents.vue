@@ -52,7 +52,6 @@
         repoPath: [],
         archivePath: [],
         path: null,
-        path2: null,
       }),
       methods: {
         async listaConteudo(caminho) {
@@ -66,6 +65,9 @@
           this.conteudos = maisconteudo
         },
         async pudim(caminho) {
+          if (this.repoPath.length > 2) {
+            this.repoPath.pop()
+          }
           this.repoPath.push(caminho)
           this.archivePath.push(caminho)
           this.path = this.repoPath.join('/')
