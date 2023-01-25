@@ -10,6 +10,8 @@
             :loading="userloading"
             :search-input.sync="usersearch"
             item-text="login"
+            style="background-color: #CDD9E5;
+              border-radius: 10px;"
         />
       </v-col>
       <v-col cols="6">
@@ -21,6 +23,8 @@
           label="Selecione o repositório"
           return-object
           single-line
+          style="background-color: #CDD9E5;
+              border-radius: 10px;"
         ></v-select>
       </v-col>
     </v-row>
@@ -84,4 +88,8 @@
     }
   }
 </script>
-    
+
+<style>
+.e-ddl.e-input-group input.e-input::placeholder {
+    color: red;
+}</style>

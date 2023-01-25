@@ -2,27 +2,28 @@
     <div>
       <v-row>
         <v-col cols="12">
-          <div><v-icon left small>mdi-xml</v-icon>{{ path }}</div>
-          <v-simple-table>
+          <div style="color: #CDD9E5; padding-bottom: 16px"><v-icon left small style="color: #CDD9E5">mdi-monitor</v-icon>{{ path }}</div>
+          <v-simple-table style="background-color: #22272E; border: 1px solid #444C56; border-radius: 10px;">
             <template v-slot:default>
-              <thead>
+              <thead style="background-color: #2D333B;">
                 <tr>
-                  <th class="text-left"> Tipo </th>
-                  <th class="text-left"> Nome </th>
+                  <th style="color: #CDD9E5; border-radius: 10px" class="text-left"> Tipo </th>
+                  <th style="color: #CDD9E5" class="text-left"> Nome </th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="conteudo in conteudos" :key="conteudo.name">
-                  <td v-if="conteudo.type == 'dir'">
-                    <v-icon left small>mdi-folder</v-icon>
+                <tr class="linhazinha" v-for="conteudo in conteudos" :key="conteudo.name">
+                  <td style="color: #CDD9E5; border-bottom: 1px solid #444C56" v-if="conteudo.type == 'dir'">
+                    <v-icon left small style="color: #CDD9E5">mdi-folder</v-icon>
                   </td>
-                  <td v-else>
-                    <v-icon left small>mdi-file</v-icon>
+                  <td style="color: #CDD9E5; border-bottom: 1px solid #444C56" v-else>
+                    <v-icon left small style="color: #CDD9E5">mdi-file</v-icon>
                   </td>
-                  <td class="alo" v-if="conteudo.type == 'dir'"><p class="dir" @click="pudim(conteudo.path)">{{ conteudo.name }}</p></td>
-                  <td v-else>{{ conteudo.name }}</td>
+                  <td style="color: #CDD9E5; border-bottom: 1px solid #444C56" v-if="conteudo.type == 'dir'"><p class="dir" @click="pudim(conteudo.path)">{{ conteudo.name }}</p></td>
+                  <td style="color: #CDD9E5; border-bottom: 1px solid #444C56" v-else>{{ conteudo.name }}</td>
                 </tr>
               </tbody>
+              <!-- <div @click="voltar()"><v-btn>Voltar</v-btn></div> -->
             </template>
           </v-simple-table>
         </v-col>
@@ -75,7 +76,16 @@
           console.log(caminho)
           this.listaConteudo2(caminho)
           console.log(this.listaConteudo2(caminho))
-        }
+        },
+        // async voltar() {
+        //   // if (this.repoPath > 2) {
+        //   //   console.log(this.conteudo.name)
+        //   // }
+        //   console.log('lo', this.repoPath[2].split('/'))
+        //   let novoCaminho = (this.repoPath[2].split('/').pop()).join('/')
+        //   this.conteudos = []
+        //   this.listaConteudo2(novoCaminho)
+        // }
       },
       watch: {
         user() {
@@ -108,6 +118,10 @@
 <style>
 .dir:hover {
   text-decoration: underline ;
-  cursor: pointer
+  cursor: pointer;
+  color: #22272E;
+}
+.linhazinha:hover {
+  background-color: blue;
 }
 </style>

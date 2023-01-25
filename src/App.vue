@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="#2D333B"
       dark
     >
       <div class="d-flex align-center h1">
@@ -21,7 +21,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main style="background-color:#22272E">
       <GithubRepoBrowser/>
     </v-main>
   </v-app>
