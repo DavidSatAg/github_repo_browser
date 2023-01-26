@@ -60,10 +60,7 @@
         const data = await api.lista_repos(this.user)
         this.repolist = data
         this.repoloading = false
-      },
-      // juntapath() {
-      //   this.joinedPath = this.path.join('/')
-      // }
+      }
     },
     watch: {
       usersearch() {
@@ -73,17 +70,10 @@
         if(this.user) {
           this.listarepositorios()
           this.$emit('userselected', this.user)
-          // this.path.push(this.user)
-          // this.juntapath()
         }
       },
       repo () {
         this.$emit('reposelected', this.repo)
-        if (this.repo) {
-          // this.path.push(this.repo.name)
-          // this.juntapath()
-        }
-        // this.$emit('pathselected', this.path)
       }
     }
   }

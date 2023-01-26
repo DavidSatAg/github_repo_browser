@@ -27,17 +27,7 @@ export const api = {
         const data = await fetch_all_pages(url)
         return await data
     },
-    async listaIssues(owner, name, page) {
-        const url = `https://api.github.com/repos/${owner}/${name}/issues?page=${page}`
-        const response = await fetch(url)
-        return await response.json()
-    },
-    async listaConteudoRepo(owner, name) {
-        const url = `https://api.github.com/repos/${owner}/${name}/contents/`
-        const response = await fetch(url)
-        return await response.json()
-    },
-    async listaConteudoRepo2(owner, name, path) {
+    async listaConteudoRepo(owner, name, path='') {
         const url = `https://api.github.com/repos/${owner}/${name}/contents/${path}`
         const response = await fetch(url)
         return await response.json()
